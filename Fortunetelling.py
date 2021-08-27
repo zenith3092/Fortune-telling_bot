@@ -244,7 +244,7 @@ if __name__ == "__main__":
     #print("")
 
     # 輸入其它句子試看看
-    inputLIST = ["輸入你的內容1", "輸入你的內容2"]
+    inputLIST = ["我想算學業"]
     filterLIST = []
     resultDICT = runLoki(inputLIST, filterLIST)
     print("Result => {}".format(resultDICT))

@@ -41,8 +41,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "[我]想算愛情":
-        # write your code here
-        pass
+        ask="愛情"
 
     if utterance == "[我]的愛情運何時[才][可以][順利][點]":
         # write your code here

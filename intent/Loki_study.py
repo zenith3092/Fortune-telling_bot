@@ -29,8 +29,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "[我]想算學業":
-        # write your code here
-        pass
+        ask="學業"
 
     if utterance == "[我]期中考結果如何":
         # write your code here

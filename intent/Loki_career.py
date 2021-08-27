@@ -37,8 +37,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "[我]想算工作":
-        # write your code here
-        pass
+        ask="工作"
 
     if utterance == "上司跟下屬關係":
         # write your code here

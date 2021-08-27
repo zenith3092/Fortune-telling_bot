@@ -25,8 +25,7 @@ def debugInfo(inputSTR, utterance):
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
     if utterance == "[我]想算運勢":
-        # write your code here
-        pass
+        ask="運勢"
 
     if utterance == "[我]想請問[最近]的運勢":
         # write your code here
