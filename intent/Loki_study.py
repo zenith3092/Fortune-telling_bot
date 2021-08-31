@@ -15,7 +15,7 @@
 """
 
 DEBUG_study = True
-userDefinedDICT = {"下屬": ["員工", "下屬", "職員"], "健康": ["身體", "健康"], "募資": ["募資"], "學業": ["學業", "課業", "功課", "成績", "考試", "考運"], "工作": ["工作", "職務", "職位", "求職"], "愛情": ["愛情", "桃花", "感情"], "老闆": ["老闆", "上司", "主管"], "考試": ["期中考", "期末考", "月考", "模擬考", "考試", "檢定考", "上機考"], "運勢": ["運勢"], "另一半": ["另一半", "男友", "女友", "老公", "老婆", "太太", "先生"], "研究所": ["研究所"]}
+userDefinedDICT = {"事業": ["事業", "工作", "工程", "案子", "標案", "事業運", "募資", "計畫", "企劃", "企劃案", "事業狀況"], "單身": ["單身", "母胎單身"], "學業": ["學業", "功課", "考試", "升學", "升高中", "升大學", "高中", "大學", "學測", "研究所", "期中考", "期末考", "月考", "模擬考", "檢定考", "檢定", "上機考", "學業運", "考運", "考試運", "考試情形", "考試狀況"], "愛情": ["愛情", "感情", "婚姻", "姻緣", "正緣", "桃花", "桃花運", "愛情運", "感情運", "感情狀況"], "求職": ["求職運", "找工作", "面試", "求職狀況", "求職情況"], "考試": ["學測", "會考", "期中考", "期末考", "月考", "模擬考", "檢定考", "檢定", "上機考"], "脫單": ["脫單"], "運勢": ["運勢", "流年", "運氣", "手氣"], "另一半": ["另一半", "男友", "女友", "老公", "老婆", "太太", "先生"]}
 
 # 將符合句型的參數列表印出。這是 debug 或是開發用的。
 def debugInfo(inputSTR, utterance):
@@ -24,19 +24,66 @@ def debugInfo(inputSTR, utterance):
 
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
-    if utterance == "[我][今年]要考[公職]考試，會考[上]嗎":
+    if utterance == "[下禮拜]有[考試]":
+        if args[1] in userDefinedDICT["考試"]:
+            resultDICT["ask"]="考試"
+
+    if utterance == "[我][今年]有[考試]":
+        if args[2] in userDefinedDICT["考試"]:
+            resultDICT["ask"]="考試"
+
+    if utterance == "[我][最近]要[考試]":
+        if args[2] in userDefinedDICT["考試"]:
+            resultDICT["ask"]="考試"
+
+    if utterance == "[我]想問[學業]":
+        if args[1] in (userDefinedDICT["學業"] or userDefinedDICT["考試"]):
+            resultDICT["ask"]="考試"
+
+    if utterance == "[我]想問[學業][順]不[順利]":
+        if args[1] in (userDefinedDICT["學業"] or userDefinedDICT["考試"]):
+            resultDICT["ask"]="考試"
+
+    if utterance == "[我]想問[最近]的[學業]":
+        if args[2] in (userDefinedDICT["學業"] or userDefinedDICT["考試"]):
+            resultDICT["ask"]="考試"
+
+    if utterance == "[我]想問[最近]的[學業]如何":
+        if args[2] in (userDefinedDICT["學業"] or userDefinedDICT["考試"]):
+            resultDICT["ask"]="考試"
+
+    if utterance == "[我]想問關於[學業]的部分":
+        if args[1] in (userDefinedDICT["學業"] or userDefinedDICT["考試"]):
+            resultDICT["ask"]="考試"
+
+    if utterance == "[我]想知道結果如何":
+        resultDICT["ask"]="考試"
+
+    if utterance == "[我]想算[學業]":
+        if args[1] in (userDefinedDICT["學業"] or userDefinedDICT["考試"]):
+            resultDICT["ask"]="考試"
+
+    if utterance == "[我]想算[考試][順]不[順利]":
+        if args[1] in (userDefinedDICT["學業"] or userDefinedDICT["考試"]):
+            resultDICT["ask"]="考試"
+
+    if utterance == "[我]想算關於[學業]的部分":
+        if args[1] in (userDefinedDICT["學業"] or userDefinedDICT["考試"]):
+            resultDICT["ask"]="考試"
+
+    if utterance == "[我]想請問[學業]":
+        if args[1] in (userDefinedDICT["學業"] or userDefinedDICT["考試"]):
+            resultDICT["ask"]="考試"
+
+    if utterance == "[我]想請問[最近]的[學業]":
+        if args[1] in (userDefinedDICT["學業"] or userDefinedDICT["考試"]):
+            resultDICT["ask"]="考試"
+
+    if utterance == "不知道[順]不[順利]":
         # write your code here
         pass
 
-    if utterance == "[我]想算學業":
-        ask="學業"
-
-    if utterance == "[我]期中考結果如何":
-        # write your code here
-        pass
-
-    if utterance == "想要請問[我][明年]的[研究所]考試結果":
-        # write your code here
-        pass
+    if utterance == "會考[上]嗎?":
+        resultDICT["ask"]="考試"
 
     return resultDICT
