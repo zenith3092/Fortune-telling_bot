@@ -62,12 +62,17 @@ async def on_message(message):
                                         "first":"no",
                                         "completed":False}
             lokiResultDICT = getLokiResult(msgSTR)
-            mscDICT[client.user.id]["process"] = lokiResultDICT
-            if mscDICT[client.user.id]["first"] =="no" :    #多輪對話的問句。
-                if "wish" not in mscDICT[client.user.id]["process"]:
-                    await message.reply("占卜即將開始，接下來請你虔誠的說出祈求的話！")
-                    mscDICT[client.user.id]["process"]["wish"]=""
-                    return
+            if lokiResultDICT == {}:
+                await message.reply("你的問題可能不是我的專長領域，又或者是你說明得不夠清楚。\n再麻煩你說明得清楚一些，好讓我理解，謝謝！")
+                del mscDICT[client.user.id]
+                return
+            else:
+                mscDICT[client.user.id]["process"] = lokiResultDICT
+                if mscDICT[client.user.id]["first"] =="no" :    #多輪對話的問句。
+                    if "wish" not in mscDICT[client.user.id]["process"]:
+                        await message.reply("占卜即將開始，接下來請你虔誠的說出祈求的話！")
+                        mscDICT[client.user.id]["process"]["wish"]=""
+                        return
 
         mscDICT[client.user.id]["process"]["wish"]=msgSTR
             
