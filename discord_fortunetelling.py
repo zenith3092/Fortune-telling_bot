@@ -95,15 +95,14 @@ async def on_message(message):
                                          data.iloc[i,4],
                                          mscDICT[client.user.id]["process"]["ask"],
                                          data.iloc[i][mscDICT[client.user.id]["process"]["ask"]]).replace(" ", "")
+                await message.reply(replySTR)
         mscDICT[client.user.id]["completed"] = True
                     
     print("mscDICT =",mscDICT)
                     
     if mscDICT[client.user.id]["completed"]:    # 清空 User Dict
         del mscDICT[client.user.id]
-                    
-    if replySTR:    # 回應 User 訊息
-        await message.reply(replySTR)
+
     return                    
                     
                     
