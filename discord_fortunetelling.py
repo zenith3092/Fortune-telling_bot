@@ -50,7 +50,7 @@ async def on_message(message):
     replySTR = ""    # Bot 回應訊息
 
     if re.search("(hi|hello|哈囉|嗨|[你您]好|hola)", msgSTR.lower()): #可以增加啟動呼叫方式
-        replySTR = """Hi!你好，我是易經占卜師。我擅長幫人家占卜運勢、愛情、求職、事業等問題。
+        replySTR = """Hi!你好，我是易經占卜師。我擅長幫人家占卜運勢、愛情、求職、事業、考試等問題。
                       不知道你最近有什麼煩惱嗎？不妨和我說說，我可以給你一些占卜上的建議唷！""".replace(" ", "")
         await message.reply(replySTR)
         return
@@ -68,7 +68,9 @@ async def on_message(message):
             mscDICT[client.user.id]["process"] = lokiResultDICT
             if mscDICT[client.user.id]["first"] =="no" :    #多輪對話的問句。
                 if "wish" not in mscDICT[client.user.id]["process"]:
-                    await message.reply("占卜即將開始，接下來請你虔誠的說出祈求的話！")
+                    replySTR = """我了解你的問題了，接下來我會帶領你進行占卜。
+                                  首先，先請你虔誠的向上天或者是神明說出祈求的話語！""".replace(" ", "")
+                    await message.reply(replySTR)
                     mscDICT[client.user.id]["process"]["wish"]=""
                     return
 
@@ -87,11 +89,12 @@ async def on_message(message):
         data = pd.read_csv('卜卦機器人資料庫1版.csv',encoding='utf-8')
         for i in range(0,64):
             if gua == data.iloc[i,0]:
-                replySTR="""占卜的結果出來囉！你所卜出來的卦是「{}」卦，在此給你一些小建議：
+                replySTR="""好的，占卜的結果出來囉！你所卜出來的卦是「{}」卦，在此給你一些小建議：
                             {}
                                 
                             另外，你所煩惱的面向是關於「{}」，而根據占卜的結果顯示：
-                            {}""".format(data.iloc[i,2],
+                            {}
+                            """.format(data.iloc[i,2],
                                          data.iloc[i,4],
                                          mscDICT[client.user.id]["process"]["ask"],
                                          data.iloc[i][mscDICT[client.user.id]["process"]["ask"]]).replace(" ", "")

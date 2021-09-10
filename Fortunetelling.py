@@ -242,7 +242,7 @@ if __name__ == "__main__":
     #print("")
 
     # 輸入其它句子試看看
-    inputLIST = ["我想問感情運"]
+    inputLIST = ["下禮拜有考試不知道順不順利"]
     filterLIST = []
     resultDICT = runLoki(inputLIST, filterLIST)
     print("Result => {}".format(resultDICT))
