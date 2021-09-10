@@ -56,7 +56,7 @@ async def on_message(message):
         if message.author in mscDICT.keys():
             now_datetime = datetime.datetime.now()
             time_diff = now_datetime - mscDICT[message.author]["first_time"]
-            if time_diff.total_seconds() >=10:
+            if time_diff.total_seconds() >= 180:
                 replySTR = """Hi!你好，我是易經占卜師。我擅長幫人家占卜運勢、愛情、求職、事業、考試等問題。
                               不知道你最近有什麼煩惱嗎？不妨和我說說，我可以給你一些占卜上的建議唷！""".replace(" ", "")
                 await message.reply(replySTR)
