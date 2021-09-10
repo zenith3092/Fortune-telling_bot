@@ -72,4 +72,40 @@ def getResult(inputSTR, utterance, args, resultDICT):
         if args[2] in userDefinedDICT["事業"]:
             resultDICT["ask"]="事業"
 
+    if utterance == "[我][想][問][事業]":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][問][事業][順]不[順利]":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][問][最近]的[事業]":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][問][最近]的[事業]如何":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][問][最近]的[新][計畫]會不[會][成功]":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][問]關於[事業]的部分":
+        # write your code here
+        pass
+
+    if utterance == "[最近][事業]不太好":
+        # write your code here
+        pass
+
+    if utterance == "[最近]有[一個][新]的[投資案]":
+        # write your code here
+        pass
+
+    if utterance == "和[同事]相處不[太順利]":
+        # write your code here
+        pass
+
     return resultDICT

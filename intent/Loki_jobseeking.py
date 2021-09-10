@@ -66,4 +66,36 @@ def getResult(inputSTR, utterance, args, resultDICT):
         # write your code here
         pass
 
+    if utterance == "[我][想][問][最近]的[求職狀況]":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][問][求職]":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][問][求職][順]不[順利]":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][算]關於[求職]的部分":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][請問][最近]的[求職狀況]如何":
+        # write your code here
+        pass
+
+    if utterance == "[最近][找工作][屢屢]撲空":
+        # write your code here
+        pass
+
+    if utterance == "[最近][求職]不太好":
+        # write your code here
+        pass
+
+    if utterance == "[最近]的[求職運]不是很好":
+        # write your code here
+        pass
+
     return resultDICT

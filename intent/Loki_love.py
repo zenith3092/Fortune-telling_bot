@@ -91,4 +91,40 @@ def getResult(inputSTR, utterance, args, resultDICT):
         if args[1] in userDefinedDICT["愛情"]:
             resultDICT["ask"]="愛情"
 
+    if utterance == "[想要][請問][我]的[正緣]何時[才][會]出現":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][問][感情]":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][問][感情][順]不[順利]":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][問][最近]的[愛情]":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][問]關於[感情]的部分":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][算][我][會]有[姻緣]嗎":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][請問][我]跟另一半兩人[相處狀況]":
+        # write your code here
+        pass
+
+    if utterance == "[我]何時[可以][脫單]":
+        # write your code here
+        pass
+
+    if utterance == "[我]好[想][脫單]":
+        # write your code here
+        pass
+
     return resultDICT

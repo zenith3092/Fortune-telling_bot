@@ -71,4 +71,32 @@ def getResult(inputSTR, utterance, args, resultDICT):
         if args[1] in userDefinedDICT["運勢"]:
             resultDICT["ask"]="運勢"
 
+    if utterance == "[我][想][問][最近]的[運勢]":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][問][最近]的[運勢]如何":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][問][運勢]":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][問][運勢][順]不[順利]":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][問]關於[運勢]的部分":
+        # write your code here
+        pass
+
+    if utterance == "[我][想]知道發生什麼事了":
+        # write your code here
+        pass
+
+    if utterance == "[最近][運勢]有[點]差":
+        # write your code here
+        pass
+
     return resultDICT

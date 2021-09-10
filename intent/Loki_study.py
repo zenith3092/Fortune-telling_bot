@@ -79,11 +79,44 @@ def getResult(inputSTR, utterance, args, resultDICT):
         if args[1] in (userDefinedDICT["學業"] or userDefinedDICT["考試"]):
             resultDICT["ask"]="考試"
 
-    if utterance == "不知道[順]不[順利]":
+    if utterance == "[我][今年]有[一場][考試]":
         # write your code here
         pass
 
-    if utterance == "會考[上]嗎?":
-        resultDICT["ask"]="考試"
+    if utterance == "[我][想][問][最近]的[考試]":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][問][最近]的[考試]如何":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][問][考試]":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][問][考試][順]不[順利]":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][問]關於[考試]的部分":
+        # write your code here
+        pass
+
+    if utterance == "[我][想]知道[考試]結果如何":
+        # write your code here
+        pass
+
+    if utterance == "[我]會考[上]嗎?":
+        # write your code here
+        pass
+
+    if utterance == "[最近][考試]不太好":
+        # write your code here
+        pass
+
+    if utterance == "不知道[考試][順]不[順利]":
+        # write your code here
+        pass
 
     return resultDICT
