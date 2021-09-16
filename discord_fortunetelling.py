@@ -104,7 +104,7 @@ async def on_message(message):
         num5=random.randint(1,2)
         num6=random.randint(1,2)
         gua=int(str(num6)+str(num5)+str(num4)+str(num3)+str(num2)+str(num1))
-        data = pd.read_csv('卜卦機器人資料庫1版.csv',encoding='utf-8')
+        data = pd.read_csv('卜卦機器人資料庫.csv',encoding='utf-8')
         for i in range(0,64):
             if gua == data.iloc[i,0]:
                 replySTR="""好的，占卜的結果出來囉！你所卜出來的卦是「{}」卦，在此給你一些小建議：
@@ -113,9 +113,9 @@ async def on_message(message):
                             另外，你所煩惱的面向是關於「{}」，而根據占卜的結果顯示：
                             {}
                             """.format(data.iloc[i,2],
-                                         data.iloc[i,4],
-                                         mscDICT[client.user.id]["process"]["ask"],
-                                         data.iloc[i][mscDICT[client.user.id]["process"]["ask"]]).replace(" ", "")
+                                       data.iloc[i,4],
+                                       mscDICT[client.user.id]["process"]["ask"],
+                                       data.iloc[i][mscDICT[client.user.id]["process"]["ask"]]).replace(" ", "")
                 await message.reply(replySTR)
         mscDICT[client.user.id]["completed"] = True
                     

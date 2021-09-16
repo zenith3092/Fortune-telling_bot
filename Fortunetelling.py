@@ -259,7 +259,7 @@ if __name__ == "__main__":
     num6=random.randint(1,2)
     #結果呈現
     gua=int(str(num6)+str(num5)+str(num4)+str(num3)+str(num2)+str(num1))
-    data = pd.read_csv('卜卦機器人資料庫1版.csv',encoding='utf-8')
+    data = pd.read_csv('卜卦機器人資料庫.csv',encoding='utf-8')
     for i in range(0,64):
         if gua == data.iloc[i,0]:
             print("您占卜到的卦象為：",data.iloc[i,2],"卦","\n在此給予您小建議：")
