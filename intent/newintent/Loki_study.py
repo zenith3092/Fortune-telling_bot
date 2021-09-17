@@ -25,61 +25,63 @@ def debugInfo(inputSTR, utterance):
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
     if utterance == "[下禮拜]有[考試]":
-        if args[1] in userDefinedDICT["考運"]:
-            resultDICT["ask"]="考試"
-
-    if utterance == "[我][今年]有[一場][考試]":
-        if args[3] in userDefinedDICT["考運"]:
-            resultDICT["ask"]="考試"
-
-    if utterance == "[我][今年]有[考試]":
-        if args[2] in userDefinedDICT["考運"]:
-            resultDICT["ask"]="考試"
-
-    if utterance == "[我][想][問][最近]的[考試]":
-        if args[4] in userDefinedDICT["考運"]:
-            resultDICT["ask"]="考試"
-
-    if utterance == "[我][想][問][最近]的[考試]如何":
-        if args[4] in userDefinedDICT["考運"]:
-            resultDICT["ask"]="考試"
-
-    if utterance == "[我][想][問][考試]":
-        if args[3] in userDefinedDICT["考運"]:
-            resultDICT["ask"]="考試"
-
-    if utterance == "[我][想][問][考試][順]不[順利]":
-        if args[3] in userDefinedDICT["考運"]:
-            resultDICT["ask"]="考試"
-
-    if utterance == "[我][想][問]關於[考試]的部分":
-        if args[3] in userDefinedDICT["考運"]:
-            resultDICT["ask"]="考試"
-
-    if utterance == "[我][想]知道[考試]結果如何":
-        if args[2] in userDefinedDICT["考運"]:
-            resultDICT["ask"]="考試"
-
-    if utterance == "[我]會考[上]嗎?":
-        resultDICT["ask"]="考試"
-
-    if utterance == "[最近][考試]不太好":
-        if args[1] in userDefinedDICT["考運"]:
-            resultDICT["ask"]="考試"
-            
-    if utterance == "不知道[考試][順]不[順利]":
-        if args[0] in userDefinedDICT["考運"]:
-            resultDICT["ask"]="考試"
+        # write your code here
+        pass
 
     if utterance == "[想][問][下]個月考試結果":
-        resultDICT["ask"]="考試"
+        # write your code here
+        pass
 
     if utterance == "[想][問][考試][成績]":
-        if args[2] in userDefinedDICT["考運"]:
-            resultDICT["ask"]="考試"
+        # write your code here
+        pass
 
     if utterance == "[想][問][考試][成績]方面":
-        if args[2] in userDefinedDICT["考運"]:
-            resultDICT["ask"]="考試"
+        # write your code here
+        pass
+
+    if utterance == "[我][今年]有[一場][考試]":
+        # write your code here
+        pass
+
+    if utterance == "[我][今年]有[考試]":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][問][最近]的[考試]":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][問][最近]的[考試]如何":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][問][考試]":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][問][考試][順]不[順利]":
+        # write your code here
+        pass
+
+    if utterance == "[我][想][問]關於[考試]的部分":
+        # write your code here
+        pass
+
+    if utterance == "[我][想]知道[考試]結果如何":
+        # write your code here
+        pass
+
+    if utterance == "[我]會考[上]嗎?":
+        # write your code here
+        pass
+
+    if utterance == "[最近][考試]不太好":
+        # write your code here
+        pass
+
+    if utterance == "不知道[考試][順]不[順利]":
+        # write your code here
+        pass
 
     return resultDICT

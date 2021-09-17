@@ -25,52 +25,55 @@ def debugInfo(inputSTR, utterance):
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
     if utterance == "[想要][請問][我]的[正緣]何時[才][會]出現":
-        if args[3] in userDefinedDICT["愛情"]:
-            resultDICT["ask"]="愛情"
+        # write your code here
+        pass
 
     if utterance == "[我][單身]很久":
-        resultDICT["ask"]="愛情"
+        # write your code here
+        pass
 
     if utterance == "[我][想][問][感情]":
-        if args[3] in userDefinedDICT["愛情"]:
-            resultDICT["ask"]="愛情"
+        # write your code here
+        pass
 
     if utterance == "[我][想][問][感情][順]不[順利]":
-        if args[3] in userDefinedDICT["愛情"]:
-            resultDICT["ask"]="愛情"
+        # write your code here
+        pass
 
     if utterance == "[我][想][問][最近]的[愛情]":
-        if args[4] in userDefinedDICT["愛情"]:
-            resultDICT["ask"]="愛情"
+        # write your code here
+        pass
 
     if utterance == "[我][想][問]關於[感情]的部分":
-        if args[3] in userDefinedDICT["愛情"]:
-            resultDICT["ask"]="愛情"
+        # write your code here
+        pass
 
     if utterance == "[我][想][算][我][會]有[姻緣]嗎":
-        if args[5] in userDefinedDICT["愛情"]:
-            resultDICT["ask"]="愛情"
+        # write your code here
+        pass
 
     if utterance == "[我][想][請問][我]跟另一半兩人[相處狀況]":
-        resultDICT["ask"]="愛情"
+        # write your code here
+        pass
 
     if utterance == "[我]何時[可以][脫單]":
-        if args[2] in userDefinedDICT["脫單"]:
-            resultDICT["ask"]="愛情"
+        # write your code here
+        pass
 
     if utterance == "[我]好[想][脫單]":
-        if args[2] in userDefinedDICT["脫單"]:
-            resultDICT["ask"]="愛情"
+        # write your code here
+        pass
 
     if utterance == "[我]的[愛情運]何時[才][可以][順利][點]":
-        if args[1] in userDefinedDICT["愛情"]:
-            resultDICT["ask"]="愛情"
-
-    if utterance == "不知道[自己][下]個[桃花]何時[才][會]出現":
-        if args[2] in userDefinedDICT["愛情"]:
-            resultDICT["ask"]="愛情"
+        # write your code here
+        pass
 
     if utterance == "[最近]有很多對象選擇":
-        resultDICT["ask"]="愛情"
+        # write your code here
+        pass
+
+    if utterance == "不知道[自己][下]個[桃花]何時[才][會]出現":
+        # write your code here
+        pass
 
     return resultDICT

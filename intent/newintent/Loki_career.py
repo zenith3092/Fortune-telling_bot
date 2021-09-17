@@ -25,38 +25,39 @@ def debugInfo(inputSTR, utterance):
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
     if utterance == "[我][想][問][事業]":
-        if args[3] in userDefinedDICT["事業"]:
-            resultDICT["ask"]="事業"
+        # write your code here
+        pass
 
     if utterance == "[我][想][問][事業][順]不[順利]":
-        if args[3] in userDefinedDICT["事業"]:
-            resultDICT["ask"]="事業"
+        # write your code here
+        pass
 
     if utterance == "[我][想][問][最近]的[事業]":
-        if args[4] in userDefinedDICT["事業"]:
-            resultDICT["ask"]="事業"
+        # write your code here
+        pass
 
     if utterance == "[我][想][問][最近]的[事業]如何":
-        if args[4] in userDefinedDICT["事業"]:
-            resultDICT["ask"]="事業"
+        # write your code here
+        pass
 
     if utterance == "[我][想][問][最近]的[新][計畫]會不[會][成功]":
-        if args[5] in userDefinedDICT["事業"]:
-            resultDICT["ask"]="事業"
+        # write your code here
+        pass
 
     if utterance == "[我][想][問]關於[事業]的部分":
-        if args[3] in userDefinedDICT["事業"]:
-            resultDICT["ask"]="事業"
+        # write your code here
+        pass
 
     if utterance == "[最近][事業]不太好":
-        if args[1] in userDefinedDICT["事業"]:
-            resultDICT["ask"]="事業"
+        # write your code here
+        pass
 
     if utterance == "[最近]有[一個][新]的[投資案]":
-        if args[3] in userDefinedDICT["事業"]:
-            resultDICT["ask"]="事業"
+        # write your code here
+        pass
 
     if utterance == "和[同事]相處不[太順利]":
-        resultDICT["ask"]="事業"
+        # write your code here
+        pass
 
     return resultDICT
