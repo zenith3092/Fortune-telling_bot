@@ -104,8 +104,8 @@ async def on_message(message):
         num5=random.randint(1,2)
         num6=random.randint(1,2)
         gua=int(str(num6)+str(num5)+str(num4)+str(num3)+str(num2)+str(num1))
-        #pic1=discord.File("C:\Users\User\Documents\GitHub\fortune-telling\陽爻.png")
-        #pic2=discord.File("C:\Users\User\Documents\GitHub\fortune-telling\陰爻.png")
+        #pic1=image.File('C:\Users\User\Documents\GitHub\fortune-telling\陽爻.png')
+        #pic2=picture.File('C:\Users\User\Documents\GitHub\fortune-telling\陰爻.png')
         data = pd.read_csv('卜卦機器人資料庫.csv',encoding='utf-8')
         for i in range(0,64):
             if gua == data.iloc[i,0]:
