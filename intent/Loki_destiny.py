@@ -59,4 +59,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
         if args[3] in userDefinedDICT["運勢"]:
             resultDICT["ask"]="運勢"
 
+    if utterance == "好倒楣":
+        resultDICT["ask"]="運勢"
+
     return resultDICT

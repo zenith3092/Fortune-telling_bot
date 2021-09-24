@@ -59,4 +59,12 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "和[同事]相處不[太順利]":
         resultDICT["ask"]="事業"
 
+    if utterance == "[事業]很辛苦":
+        if args[0] in userDefinedDICT["事業"]:
+            resultDICT["ask"]="事業"
+
+    if utterance == "[業績]不理想":
+        if args[0] in userDefinedDICT["事業"]:
+            resultDICT["ask"]="事業"
+
     return resultDICT

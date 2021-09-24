@@ -73,4 +73,22 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "[最近]有很多對象選擇":
         resultDICT["ask"]="愛情"
 
+    if utterance == "[另一半]":
+       if args[0] in userDefinedDICT["另一半"]:
+            resultDICT["ask"]="愛情"
+
+    if utterance == "[另一半]吵架":
+        if args[0] in userDefinedDICT["另一半"]:
+            resultDICT["ask"]="愛情"
+
+    if utterance == "[另一半]處的不[好]":
+        if args[0] in userDefinedDICT["另一半"]:
+            resultDICT["ask"]="愛情"
+
+    if utterance == "單戀":
+        resultDICT["ask"]="愛情"
+
+    if utterance == "暗戀":
+        resultDICT["ask"]="愛情"
+
     return resultDICT
