@@ -53,15 +53,15 @@ async def on_message(message):
     replySTR = ""    # Bot 回應訊息
 
     if re.search("(hi|hello|哈囉|嗨|[你您]好|hola)", msgSTR.lower()): #可以增加啟動呼叫方式
-        if message.author in mscDICT.keys():
+        if client.user.id in mscDICT.keys():
             now_datetime = datetime.datetime.now()
-            time_diff = now_datetime - mscDICT[message.author]["first_time"]
+            time_diff = now_datetime - mscDICT[client.user.id]["first_time"]
             if time_diff.total_seconds() >= 180:
                 replySTR = """Hi!你好，我是易經占卜師。我擅長幫人家占卜運勢、愛情、求職、事業、考試等問題。
                               不知道你最近有什麼煩惱嗎？不妨和我說說，我可以給你一些占卜上的建議唷！""".replace(" ", "")
                 await message.reply(replySTR)
-                del mscDICT[message.author]
-                mscDICT[message.author] = {"first_time":datetime.datetime.now()}
+                del mscDICT[client.user.id]
+                mscDICT[client.user.id] = {"first_time":datetime.datetime.now()}
                 return
             else:
                 await message.reply("你還沒有說出你最近的煩惱唷！")
@@ -70,17 +70,19 @@ async def on_message(message):
             replySTR = """Hi!你好，我是易經占卜師。我擅長幫人家占卜運勢、愛情、求職、事業、考試等問題。
                           不知道你最近有什麼煩惱嗎？不妨和我說說，我可以給你一些占卜上的建議唷！""".replace(" ", "")
             await message.reply(replySTR)
-            mscDICT[message.author] = {"first_time":datetime.datetime.now()}
+            mscDICT[client.user.id] = {"first_time":datetime.datetime.now()}
             return        
         
-    if client.user.id not in mscDICT:     # 判斷 User 是否為第一輪對話
+    if "first" not in mscDICT[client.user.id]:     # 判斷 User 是否為第一輪對話
         mscDICT[client.user.id] = {"process":{},
                                    "first":"no",
                                    "completed":False}
         lokiResultDICT = getLokiResult(msgSTR)
         if lokiResultDICT == {}:
             await message.reply("你的問題可能不是我的專長領域，又或者是你說明得不夠清楚。\n再麻煩你說明得清楚一些，好讓我理解，謝謝！")
-            del mscDICT[client.user.id]
+            del mscDICT[client.user.id]["process"]
+            del mscDICT[client.user.id]["first"]
+            del mscDICT[client.user.id]["completed"]
             return
         else:
             mscDICT[client.user.id]["process"] = lokiResultDICT
@@ -125,7 +127,7 @@ async def on_message(message):
                     
     if mscDICT[client.user.id]["completed"]:    # 清空 User Dict
         del mscDICT[client.user.id] 
-        del mscDICT[message.author]
+        mscDICT[client.user.id] = {}
 
     return                    
                     
