@@ -74,9 +74,9 @@ async def on_message(message):
             return        
         
     if "first" not in mscDICT[client.user.id]:     # 判斷 User 是否為第一輪對話
-        mscDICT[client.user.id] = {"process":{},
-                                   "first":"no",
-                                   "completed":False}
+        mscDICT[client.user.id]["process"]={}
+        mscDICT[client.user.id]["first"]="no"
+        mscDICT[client.user.id]["completed"]=False
         lokiResultDICT = getLokiResult(msgSTR)
         if lokiResultDICT == {}:
             await message.reply("你的問題可能不是我的專長領域，又或者是你說明得不夠清楚。\n再麻煩你說明得清楚一些，好讓我理解，謝謝！")
