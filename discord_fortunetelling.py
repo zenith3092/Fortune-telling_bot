@@ -47,40 +47,76 @@ async def on_message(message):
     if message.author == client.user:
         return
     
-    print("client.user.id =", client.user.id, "\nmessage.content =", message.content)
-    msgSTR = re.sub("<@[!&]{}> ?".format(client.user.id), "", message.content)    # 收到 User 的訊息，將 id 取代成 ""
+    print("message.author =", message.author, "\nmessage.content =", message.content)
+    msgSTR = re.sub("<@[!&]{}> ?".format(message.author), "", message.content)    # 收到 User 的訊息，將 id 取代成 ""
     print("msgSTR =", msgSTR)
-    replySTR = ""# Bot 回應訊息
-    
+    replySTR = ""    # Bot 回應訊息
 
     if re.search("(hi|hello|哈囉|嗨|[你您]好|hola)", msgSTR.lower()): #可以增加啟動呼叫方式
+        if message.author in mscDICT.keys():
+            now_datetime = datetime.datetime.now()
+            mscDICT[message.author]["first_time"]=mscDICT[message.author]["second_time"]
+            time_diff = now_datetime - mscDICT[message.author]["first_time"]
+            if time_diff.total_seconds() >= 180:
+                replySTR = """Hi!你好，我是易經占卜師。我擅長幫人家占卜運勢、愛情、求職、事業、考試等問題。
+                              不知道你最近有什麼煩惱嗎？不妨和我說說，我可以給你一些占卜上的建議唷！""".replace(" ", "")
+                await message.reply(replySTR)
+                del mscDICT[message.author]
+                mscDICT[message.author]["first_time"] = datetime.datetime.now()
+                mscDICT[message.author]["second_time"] = datetime.datetime.now()
+                mscDICT[message.author]["repeat"] = ""                
+                return
+            elif (time_diff.total_seconds() < 180) and (mscDICT[message.author]["repeat"]=="yes"):                
+                replySTR = """Hi!你好，我是易經占卜師。我擅長幫人家占卜運勢、愛情、求職、事業、考試等問題。
+                              不知道你最近有什麼煩惱嗎？不妨和我說說，我可以給你一些占卜上的建議唷！""".replace(" ", "")
+                await message.reply(replySTR)
+                mscDICT[message.author]["repeat"]=""
+                
+                return
+            elif ("process" in mscDICT[message.author]) and (mscDICT[message.author]["process"] != {}):
+                await message.reply("你還沒和上天說出祈求的話語唷")
+                return
+            else:
+                await message.reply("你還沒有說出你最近的煩惱唷！")
+                return
+        else:
             replySTR = """Hi!你好，我是易經占卜師。我擅長幫人家占卜運勢、愛情、求職、事業、考試等問題。
                           不知道你最近有什麼煩惱嗎？不妨和我說說，我可以給你一些占卜上的建議唷！""".replace(" ", "")
             await message.reply(replySTR)
-            return
-              
-    if client.user.id not in mscDICT:     # 判斷 User 是否為第一輪對話
-        mscDICT[client.user.id]={"process":{},"first":"no","completed":False}
+            mscDICT[message.author]={"first_time":datetime.datetime.now(),"second_time":datetime.datetime.now(),"repeat":""}
+            return        
+    
+    if message.author not in mscDICT.keys():
+        mscDICT[message.author]={}
+        mscDICT[message.author]["second_time"] = datetime.datetime.now()
+        mscDICT[message.author]["repeat"]=""        
+    
+    if "process" not in mscDICT[message.author]:     # 判斷 User 是否為第一輪對話
+        mscDICT[message.author]["process"]={}
+        mscDICT[message.author]["first"]="no"
+        mscDICT[message.author]["completed"]=False
         lokiResultDICT = getLokiResult(msgSTR)
         if lokiResultDICT == {}:
-            await message.reply("你的問題可能不是我的專長領域，又或者是你說明得不夠清楚。\n再麻煩你說明得清楚一些，好讓我理解，謝謝！\n另外你也可以直接說你想算哪個方面，可以更快更精準讓我知道唷！")
-            del mscDICT[client.user.id]
+            await message.reply("你的問題可能不是我的專長領域，又或者是你說明得不夠清楚。\n再麻煩你說明得清楚一些，好讓我理解，謝謝！\n另外，你也可以直接說你想算哪個方面，可以更快更精準讓我知道唷！")
+            del mscDICT[message.author]["process"]
+            del mscDICT[message.author]["first"]
+            del mscDICT[message.author]["completed"]
             return
         else:
-            mscDICT[client.user.id]["process"] = lokiResultDICT
-            if mscDICT[client.user.id]["first"] =="no" :    #多輪對話的問句。
-                if "wish" not in mscDICT[client.user.id]["process"]:
+            mscDICT[message.author]["process"] = lokiResultDICT
+            if mscDICT[message.author]["first"] =="no" :    #多輪對話的問句。
+                if "wish" not in mscDICT[message.author]["process"]:
                     replySTR = """我了解你的問題了，接下來我會帶領你進行占卜。
                                   首先，先請你虔誠的向上天或者是神明說出祈求的話語！""".replace(" ", "")
                     await message.reply(replySTR)
-                    mscDICT[client.user.id]["process"]["wish"]=""
+                    mscDICT[message.author]["process"]["wish"]=""
                     return
 
-    mscDICT[client.user.id]["process"]["wish"]=msgSTR
+    mscDICT[message.author]["process"]["wish"]=msgSTR
             
             
                     
-    if mscDICT[client.user.id]["process"]["wish"]!="":
+    if mscDICT[message.author]["process"]["wish"]!="":
         num1=random.randint(1,2)
         num2=random.randint(1,2)
         num3=random.randint(1,2)
@@ -100,16 +136,17 @@ async def on_message(message):
                             {}
                             """.format(data.iloc[i,2],
                                        data.iloc[i,4],
-                                       mscDICT[client.user.id]["process"]["ask"],
-                                       data.iloc[i][mscDICT[client.user.id]["process"]["ask"]]).replace(" ", "")
+                                       mscDICT[message.author]["process"]["ask"],
+                                       data.iloc[i][mscDICT[message.author]["process"]["ask"]]).replace(" ", "")
                 await message.reply(replySTR)
-        mscDICT[client.user.id]["completed"] = True
+        mscDICT[message.author]["completed"] = True
                     
     print("mscDICT =",mscDICT)
                     
-    if mscDICT[client.user.id]["completed"]:    # 清空 User Dict
-        del mscDICT[client.user.id] 
-
+    if mscDICT[message.author]["completed"]:    # 清空 User Dict
+        del mscDICT[message.author]
+        mscDICT[message.author] = {"second_time":datetime.datetime.now(),"repeat":"yes"}
+        
     return                    
                     
                     
