@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
+# Developer: Xianglin Wu (xianglin3092@gmail.com)
 
 """
     Loki 2.0 Template For Python3

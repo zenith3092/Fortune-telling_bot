@@ -1,5 +1,6 @@
 #!/user/bin/env python
 # -*- coding: utf-8 -*-
+# Developer: Xianglin Wu (xianglin3092@gmail.com)
 import logging
 import discord
 import time
@@ -9,7 +10,7 @@ import re
 import random
 import pandas as pd
 import pprint
-from fortunetelling import runLoki
+from Fortunetelling import runLoki
 
 logging.basicConfig(level=logging.CRITICAL)
 
